@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TypeErasureLab {
-
+// Type erasure will remove generic type info at runtime
+// This affects things like logging and diagonsitics because List<string> and List<integer>
+// appears as the same type, making it harder to distinguish them during during debugging.
     public static void main(String[] args) {
         List<String> courseNames = new ArrayList<>();
         List<Integer> sectionCounts = new ArrayList<>();
