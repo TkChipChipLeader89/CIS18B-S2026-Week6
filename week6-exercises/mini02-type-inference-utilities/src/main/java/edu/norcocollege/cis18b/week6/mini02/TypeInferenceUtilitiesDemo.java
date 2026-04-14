@@ -9,10 +9,20 @@ public class TypeInferenceUtilitiesDemo {
     public static <T> T chooseSecond(T first, T second) {
         return second;
     }
-
+        // extension method 
+        public static <T> T chooseNonNull(T first, T second) {
+            if (first !=null) {
+                return first;
+            }
+            if (second !=null) {
+                return second;
+            }
+            throw new IllegalArgumentException("Both values cannot be null");
+        }
     public static void main(String[] args) {
         Pair<String, Integer> studentScore = pair("Ada", 98);
         String secondName = chooseSecond("Ada", "Grace");
+        // explicit typing is very useful when Java cannot infer the type! EX. such as when passing a null!
         String explicitValue = TypeInferenceUtilitiesDemo.<String>chooseSecond(null, "fallback");
 
         System.out.println("Pair: " + studentScore);
