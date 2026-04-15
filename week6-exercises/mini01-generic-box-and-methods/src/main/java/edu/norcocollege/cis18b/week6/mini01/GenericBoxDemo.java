@@ -10,6 +10,13 @@ public class GenericBoxDemo {
         }
         return values.get(0);
     }
+    // This method will return last item while checking for null or empty list!
+    public static <T> T last(List<T> values) {
+        if (values == null || values.isEmpty()) {
+            throw new IllegalArgumentException("values must contain at least one item");
+        }
+        return values.get(values.size() - 1);
+    }
 
     public static void main(String[] args) {
         Box<String> labelBox = new Box<>();
