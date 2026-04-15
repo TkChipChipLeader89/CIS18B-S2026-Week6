@@ -12,10 +12,8 @@ public class GenericObserverDemo {
         System.out.println("Dispatching alert: " + alert.level() + " " + alert.message());
         stream.notifyObservers(alert);
         //updates to code
-        System.out.println("Observers unsubscribed");
-        stream.unsubscribed(ObserverA);
-        stream.unsubscribed(ObserverB);
-
+        System.out.println("Observers unsubscribe");
+        stream.unsubscribe(alert2-> System.out.println("Observer A received: " + alert2.level()));
         SecurityAlert alert2 = new SecurityAlert("LOW", "logout attempts");
         System.out.println("Dispatching alert: " + alert2.level()+ " " + alert2.message());
         stream.notifyObservers(alert2);
