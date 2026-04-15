@@ -10,6 +10,7 @@ public class GenericBoxDemo {
         }
         return values.get(0);
     }
+    // This method will return last item while checking for null or empty list!
     public static <T> T last(List<T> values) {
         if (values == null || values.isEmpty()) {
             throw new IllegalArgumentException("values must contain at least one item");
